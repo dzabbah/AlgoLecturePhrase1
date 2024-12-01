@@ -1,0 +1,59 @@
+Algorithme AnalyserPhrase
+    // Initialisation des variables
+    Déclarer longueur, nombreDeMots, nombreDeVoyelles, nombreDeConsonnes, totalLettres, pourcentageVoyelles, pourcentageConsonnes comme entiers
+    longueur <- 0
+    nombreDeMots <- 0
+    nombreDeVoyelles <- 0
+    nombreDeConsonnes <- 0
+    totalLettres <- 0
+
+    // Demander à l'utilisateur de saisir la phrase
+    Afficher "Entrez une phrase qui se termine par un point :"
+    Lire phrase
+
+    // Vérification que la phrase se termine par un point
+    Si dernier caractère de phrase n'est pas un point alors
+        Afficher "La phrase doit se terminer par un point."
+        Retourner
+    Fin Si
+
+    // Liste des voyelles et des consonnes
+    Déclarer voyelles comme chaîne de caractères = "aeiouyAEIOUY"
+    Déclarer consonnes comme chaîne de caractères = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ"
+
+    // Analyser chaque caractère de la phrase
+    Pour chaque caractère c dans phrase faire
+        // Incrémenter le compteur de longueur
+        longueur <- longueur + 1
+
+        // Si c'est une voyelle, incrémenter le compteur des voyelles
+        Si c dans voyelles alors
+            nombreDeVoyelles <- nombreDeVoyelles + 1
+            totalLettres <- totalLettres + 1
+        // Si c'est une consonne, incrémenter le compteur des consonnes
+        Sinon Si c dans consonnes alors
+            nombreDeConsonnes <- nombreDeConsonnes + 1
+            totalLettres <- totalLettres + 1
+        Fin Si
+
+        // Détecter un mot (un mot commence après un espace ou au début de la phrase)
+        Si c n'est pas un espace et (c est le premier caractère ou le précédent caractère est un espace) alors
+            nombreDeMots <- nombreDeMots + 1
+        Fin Si
+    Fin Pour
+
+    // Calculer les pourcentages de voyelles et de consonnes
+    Si totalLettres > 0 alors
+        pourcentageVoyelles <- (nombreDeVoyelles / totalLettres) * 100
+        pourcentageConsonnes <- (nombreDeConsonnes / totalLettres) * 100
+    Sinon
+        pourcentageVoyelles <- 0
+        pourcentageConsonnes <- 0
+    Fin Si
+
+    // Afficher les résultats
+    Afficher "Longueur de la phrase : ", longueur, " caractères"
+    Afficher "Nombre de mots : ", nombreDeMots
+    Afficher "Nombre de voyelles : ", nombreDeVoyelles, " (", pourcentageVoyelles, "%)"
+    Afficher "Nombre de consonnes : ", nombreDeConsonnes, " (", pourcentageConsonnes, "%)"
+Fin Algorithme

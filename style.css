@@ -1,0 +1,17 @@
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: blueviolet;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            color: red;
+        }
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+        }
+  
